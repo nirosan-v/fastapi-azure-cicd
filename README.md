@@ -66,5 +66,11 @@ GitHub Actions runs on every push to `main`:
 Example response:
 ```json
 {
+  "message":"Hello from FastAPI in Docker with CI/CD"
+}
+
+Example response:
+```json
+{
   "status": "healthy"
 }
