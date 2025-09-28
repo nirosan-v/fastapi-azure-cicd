@@ -79,3 +79,7 @@ Example response for `/health`:
   "status": "healthy"
 }
 ```
+
+## 📸 Deployment Proof
+Full step-by-step screenshots are available here:  
+[View Deployment Walkthrough](./screenshots/deployment.md)
