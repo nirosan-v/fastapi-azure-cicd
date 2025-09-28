@@ -68,11 +68,11 @@ Example response for `/`:
 {
   "message": "Hello from FastAPI in Docker with CI/CD"
 }
-'''
+```
 
-Example response for `/`:
+Example response for `/health`:
 ```json
 {
   "status": "healthy"
 }
-'''
+```
