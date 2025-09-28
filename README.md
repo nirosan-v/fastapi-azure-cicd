@@ -63,13 +63,13 @@ GitHub Actions runs on every push to `main`:
 - `GET /` → Welcome message  
 - `GET /health` → Returns app health status  
 
-Example response:
+Example response for `/`:
 ```json
 {
-  "message":"Hello from FastAPI in Docker with CI/CD"
+  "message": "Hello from FastAPI in Docker with CI/CD"
 }
 
-Example response:
+Example response for `/`:
 ```json
 {
   "status": "healthy"
