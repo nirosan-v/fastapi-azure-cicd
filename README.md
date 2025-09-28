@@ -26,6 +26,8 @@ The goal was to show how application deployments can be made **automated**, **re
 ├─ **app/**  
 │   ├─ **main.py** → FastAPI application code  
 │   ├─ **requirements.txt** → Dependencies  
+├─ **screenshots/**  
+│   ├─ **deployment.md** → CI/CD deployment walkthrough with screenshots  
 ├─ **.gitignore** → Ignore Terraform, Docker, Python cache, OS/IDE junk  
 ├─ **Dockerfile** → Docker build instructions  
 ├─ **README.md** → Project write-up  
@@ -54,7 +56,7 @@ This project reflects typical DevOps workflows:
 ## 🚀 Deployment Pipeline
 GitHub Actions runs on every push to `main`:
 1. **Checkout** → Pull code  
-2. **Azure Login** → Authenticate with Service Principal  
+2. **Azure Login** → Authenticate with Service Principal (Azure)  
 3. **Build Docker Image** → Package FastAPI app  
 4. **Push Image** → Upload to ACR  
 5. **Deploy** → Deploy container to Azure App Service  
