@@ -27,7 +27,7 @@ jobs:
 
       # Step 3.3: Build Docker image
       - name: Build Docker image
-        run: docker build -t fastapi-cicd-app .
+        run: docker build -t fastapi-cicd-app ./app
 
       # Step 3.4: Push image to Azure Container Registry (ACR)
       # Requires ACR_LOGIN_SERVER and ACR_PASSWORD in GitHub secrets
@@ -44,3 +44,17 @@ jobs:
         with:
           app-name: ${{ secrets.APP_NAME }}
           images: ${{ secrets.ACR_LOGIN_SERVER }}/fastapi-cicd-app:latest
+      # Step 3.6: Smoke test to verify the app is live
+      - name: Smoke test app
+        run: |
+          for i in {1..10}; do
+            STATUS=$(curl -s -o /dev/null -w "%{http_code}" https://${{ secrets.APP_NAME }}.azurewebsites.net/)
+            if [ "$STATUS" -eq 200 ]; then
+              echo "✅ App is live at https://${{ secrets.APP_NAME }}.azurewebsites.net/"
+              exit 0
+            fi
+            echo "⏳ Waiting for app..."
+            sleep 5
+          done
+          echo "❌ App did not respond in time"
+          exit 1
