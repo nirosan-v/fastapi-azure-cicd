@@ -21,12 +21,15 @@ The goal was to show how application deployments can be made **automated**, **re
 
 ## 📂 Project Structure
 **fastapi-azure-cicd/**  
+├─ **.github/workflows/**  
+│   ├─ **ci-cd.yml** → GitHub Actions pipeline  
 ├─ **app/**  
 │   ├─ **main.py** → FastAPI application code  
 │   ├─ **requirements.txt** → Dependencies  
+├─ **.gitignore** → Ignore Terraform, Docker, Python cache, OS/IDE junk  
 ├─ **Dockerfile** → Docker build instructions  
-├─ **.github/workflows/ci-cd.yml** → GitHub Actions pipeline  
 ├─ **README.md** → Project write-up  
+
 
 ---
 
