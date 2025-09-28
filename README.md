@@ -1,4 +1,4 @@
-🚀 FastAPI on Azure with Docker & CI/CD
+# FastAPI on Azure with Docker & CI/CD
 
 ## 📌 Overview
 This project demonstrates deploying a **FastAPI** web application to **Azure App Service** using:
