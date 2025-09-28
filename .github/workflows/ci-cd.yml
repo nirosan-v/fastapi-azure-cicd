@@ -1,0 +1,46 @@
+# Step 1: Name of the workflow
+name: CI/CD Pipeline - FastAPI to Azure App Service
+
+# Step 2: Define when this workflow runs
+on:
+  push:
+    branches: ["main"]   # runs on every push to main branch
+  pull_request:
+    branches: ["main"]
+
+# Step 3: Define the jobs
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest   # GitHub-hosted Linux runner
+
+    steps:
+      # Step 3.1: Checkout the repo
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Step 3.2: Log in to Azure
+      # Requires AZURE_CREDENTIALS secret in GitHub (JSON from Azure Service Principal)
+      - name: Azure Login
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      # Step 3.3: Build Docker image
+      - name: Build Docker image
+        run: docker build -t fastapi-cicd-app .
+
+      # Step 3.4: Push image to Azure Container Registry (ACR)
+      # Requires ACR_LOGIN_SERVER and ACR_PASSWORD in GitHub secrets
+      - name: Push to Azure Container Registry
+        run: |
+          echo ${{ secrets.ACR_PASSWORD }} | docker login ${{ secrets.ACR_LOGIN_SERVER }} -u ${{ secrets.ACR_USERNAME }} --password-stdin
+          docker tag fastapi-cicd-app ${{ secrets.ACR_LOGIN_SERVER }}/fastapi-cicd-app:latest
+          docker push ${{ secrets.ACR_LOGIN_SERVER }}/fastapi-cicd-app:latest
+
+      # Step 3.5: Deploy to Azure App Service
+      # Requires APP_NAME (the Azure Web App name) as a GitHub secret
+      - name: Deploy to Azure App Service
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: ${{ secrets.APP_NAME }}
+          images: ${{ secrets.ACR_LOGIN_SERVER }}/fastapi-cicd-app:latest
