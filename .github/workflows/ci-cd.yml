@@ -27,7 +27,7 @@ jobs:
 
       # Step 3.3: Build Docker image
       - name: Build Docker image
-        run: docker build -t fastapi-cicd-app ./app
+        run: docker build -t fastapi-cicd-app .
 
       # Step 3.4: Push image to Azure Container Registry (ACR)
       # Requires ACR_LOGIN_SERVER and ACR_PASSWORD in GitHub secrets
