@@ -9,7 +9,7 @@ app = FastAPI()
 # This acts like a landing page for our API
 @app.get("/")
 def read_root():
-    return {"message": "Hello from FastAPI in Docker with CI/CD 🚀"}
+    return {"message": "Hello from FastAPI in Docker with CI/CD"}
 
 # Step 4: Add a health check route
 # Useful for monitoring and readiness probes in cloud environments
