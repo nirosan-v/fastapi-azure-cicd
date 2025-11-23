@@ -1,6 +1,6 @@
 # FastAPI on Azure with Docker & CI/CD
 
-## 📌 Overview
+## Overview
 This project demonstrates deploying a **FastAPI** web application to **Azure App Service** using:
 - **Docker** for containerisation  
 - **GitHub Actions** for CI/CD automation  
@@ -10,7 +10,7 @@ The goal was to show how application deployments can be made **automated**, **re
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)
 ![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
@@ -19,7 +19,7 @@ The goal was to show how application deployments can be made **automated**, **re
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 **fastapi-azure-cicd/**  
 ├─ **.github/workflows/**  
 │   ├─ **ci-cd.yml** → GitHub Actions pipeline  
@@ -35,7 +35,7 @@ The goal was to show how application deployments can be made **automated**, **re
 
 ---
 
-## 🌍 Real-World Relevance
+## Real-World Relevance
 This project reflects typical DevOps workflows:
 - **Containerisation:** consistent app packaging across environments  
 - **CI/CD Automation:** reliable builds & deployments on every commit  
@@ -44,7 +44,7 @@ This project reflects typical DevOps workflows:
 
 ---
 
-## ⚡ Features
+## Features
 - REST API with FastAPI  
 - Dockerized for portability  
 - Automated build & push to Azure Container Registry  
@@ -53,7 +53,7 @@ This project reflects typical DevOps workflows:
 
 ---
 
-## 🚀 Deployment Pipeline
+## Deployment Pipeline
 GitHub Actions runs on every push to `main`:
 1. **Checkout** → Pull code  
 2. **Azure Login** → Authenticate with Service Principal (Azure)  
@@ -64,7 +64,7 @@ GitHub Actions runs on every push to `main`:
 
 ---
 
-## 📦 Endpoints
+## Endpoints
 - `GET /` → Welcome message  
 - `GET /health` → Returns app health status  
 
@@ -82,6 +82,6 @@ Example response for `/health`:
 }
 ```
 
-## 📸 Deployment Proof
+## Deployment Proof
 Full step-by-step screenshots are available here:  
 [View Deployment Walkthrough](./screenshots/deployment.md)
