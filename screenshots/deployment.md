@@ -40,7 +40,7 @@ The `/health` endpoint confirms the application is running in a healthy state.
 
 ---
 
-## ✅ Summary
+## Summary
 This deployment demonstrated how GitHub Actions can be used to implement a full CI/CD pipeline to Azure App Service in minutes.  
 
 --> Key steps included: triggering a workflow on commit, building a Docker image, pushing it to Azure Container Registry, deploying to App Service, running a smoke test and verifying the live application.  
